@@ -7,6 +7,8 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import About from './components/About/About';
+
 import particlesOptions from './Particle';
 import './App.css';
 
@@ -61,6 +63,12 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
+  toggleAbout = () => {
+    const {isSignedIn, route} = this.state
+    isSignedIn && route === 'about' ? this.onRouteChange('home') : 
+    this.onRouteChange('about')
+  }
+
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
     fetch('https://nameless-depths-19882.herokuapp.com/imageurl', {
@@ -96,37 +104,43 @@ class App extends Component {
       this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
-    }
+    } 
     this.setState({route: route});
   }
 
   render() {
-    const { isSignedIn, imageUrl, route, box } = this.state;
+    const { isSignedIn, imageUrl, route, box} = this.state;
+    let page
+      switch(route) {
+        case 'home':
+          page = <div>
+              <Logo />
+              <Rank name={this.state.user.name} entries={this.state.user.entries} />
+              <ImageLinkForm onInputChange={this.onInputChange}  onButtonSubmit={this.onButtonSubmit} />
+              <FaceRecognition box={box} imageUrl={imageUrl} />
+          </div>;
+          break;
+        case 'register':
+          page = <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />;
+          break;
+        case 'about':
+          page = <About/>
+          break;
+        default:
+          page = <Signin loadUser={this.loadUser} 
+          onRouteChange={this.onRouteChange} />;
+      }
+
     return (
       <div className="App">
          <Particles className='particles'
           params={particlesOptions}
         />
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-        { route === 'home'
-          ? <div>
-              <Logo />
-              <Rank
-                name={this.state.user.name}
-                entries={this.state.user.entries}
-              />
-              <ImageLinkForm
-                onInputChange={this.onInputChange}
-                onButtonSubmit={this.onButtonSubmit}
-              />
-              <FaceRecognition box={box} imageUrl={imageUrl} />
-            </div>
-          : (
-             route === 'signin'
-             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-             : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-            )
-        }
+        <Navigation isSignedIn={isSignedIn} 
+          onRouteChange={this.onRouteChange}
+          toggleAbout={this.toggleAbout} 
+          />
+          {page}
       </div>
     );
   }

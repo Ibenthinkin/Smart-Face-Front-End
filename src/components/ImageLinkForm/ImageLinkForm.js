@@ -4,7 +4,7 @@ import './ImageLinkForm.css';
 const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   return (
     <div>
-      <p className='f3'>
+      <p className='f3 white'>
         {'Smart Face will find faces in a picture, just paste a link in the box.'}
       </p>
       <div className='center'>

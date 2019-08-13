@@ -23,7 +23,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://nameless-depths-19882.herokuapp.com/register', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}register`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

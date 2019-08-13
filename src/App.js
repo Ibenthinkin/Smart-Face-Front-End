@@ -71,7 +71,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://nameless-depths-19882.herokuapp.com/imageurl', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}imageurl`, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -81,7 +81,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://nameless-depths-19882.herokuapp.com/image', {
+          fetch(`${process.env.REACT_APP_BACKEND_URL}image`, {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

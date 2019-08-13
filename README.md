@@ -19,20 +19,20 @@ Just sign in and paste a link to a photo in the box.  Smart Face will detect fac
 ## Installation
 
 1. Fork and Clone down the repo
-2. Visit [newsapi.org/](http://newsapi.org/) to get a Free API Key
-3. Visit [meaningcloud.com/](http://www.meaningcloud.com/) to get a Free API Key
-4. In the root directory of the project make a file called .env and define environmental variables
- ```
-REACT_APP_NEWS_API_KEY = theapikeyuoutgot782734983242 
-REACT_APP_MEANING_API_KEY = theotherpaikeyuoutgot782734983242
+2. Fork and Clone the Back-end [Smart-Face-Backend](https://github.com/Ibenthinkin/Smart-Face-Back-End) 
+3.Follow Install Instructions for the Back-End and Database.  They must both be running locally for the front end to work properly.
+4.make a file called .env in the root directory of the front end project. In .env copy and paste the following code:
+
+```  
+   REACT_APP_BACKEND_URL = localhosthttp://localhost:3000/ 
 ```
-5. In a terminal, navigate to the root directory and run 
+4. In a terminal, navigate to the root directory and run 
 
 ```
 npm install 
 ```
 
-6. Then run 
+5. Then run 
 
 ```
 npm start 
@@ -44,7 +44,7 @@ Ben Reilly –  benjamin.reilly@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/Ibenthinkin/Nous-Front-End](https://github.com/ibenthinkin/)
+[https://github.com/Ibenthinkin/Smart-Face-Front-End](https://github.com/ibenthinkin/)
 
 ## Contributing
 

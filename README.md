@@ -21,8 +21,8 @@ Just sign in and paste a link to a photo in the box.  Smart Face will detect fac
 
 1. Fork and Clone down the repo
 2. Fork and Clone the Back-end [Smart-Face-Backend](https://github.com/Ibenthinkin/Smart-Face-Back-End) 
-3.Follow Install Instructions for the Back-End and Database.  They must both be running locally for the front end to work properly.
-4.make a file called .env in the root directory of the front end project. In .env copy and paste the following code:
+3. Follow Install Instructions for the Back-End and Database.  They must both be running locally for the front end to work properly.
+4. make a file called .env in the root directory of the front end project. In .env copy and paste the following code:
 
 ```  
    REACT_APP_BACKEND_URL = localhosthttp://localhost:3000/ 

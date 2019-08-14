@@ -16,6 +16,7 @@ Just sign in and paste a link to a photo in the box.  Smart Face will detect fac
 # Interesting Edge Cases
 ![](./ScreenShots/muppet.png)
 ![](./ScreenShots/buttFace.png)
+![](./ScreenShots/virginMary.png)
 
 ## Installation
 

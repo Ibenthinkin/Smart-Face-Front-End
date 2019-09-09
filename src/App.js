@@ -8,8 +8,8 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import About from './components/About/About';
-
 import particlesOptions from './Particle';
+
 import './App.css';
 
 const initialState = {
